@@ -1,0 +1,24 @@
+{
+  "name": "wcs-edd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lowgular/wcs-edd.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Lowgular/wcs-edd/issues"
+  },
+  "homepage": "https://github.com/Lowgular/wcs-edd#readme",
+  "dependencies": {
+    "web-codegen-scorer": "^0.0.70"
+  }
+}
