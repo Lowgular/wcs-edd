@@ -11,6 +11,7 @@ const props = defineProps<{
   tl?: Quad; tr?: Quad; bl?: Quad; br?: Quad
   highlight?: 'tl' | 'tr' | 'bl' | 'br'
   reveal?: boolean
+  order?: ('tl' | 'tr' | 'bl' | 'br')[]
 }>()
 
 // geometry: viewBox px === container px so SVG axes & HTML cards share coordinates
@@ -24,9 +25,10 @@ const TONES: Record<string, string> = {
   emerald: '#22c55e', sky: '#3d9ad9', amber: '#f59e0b', rose: '#f43f5e', slate: '#64748b',
   orange: '#f97316', yellow: '#eab308',
 }
-// reveal: tl→tr→bl→br on clicks 1..4. `false` (not undefined) = always visible when static.
-const ORDER = ['tl', 'tr', 'bl', 'br'] as const
-const clk = (k: typeof ORDER[number]) => (props.reveal ? ORDER.indexOf(k) + 1 : false)
+// reveal: cards appear one per click. Default order tl→tr→bl→br; override with :order (e.g. a
+// counter-clockwise br→tr→tl→bl). `false` (not undefined) = always visible when static.
+const ORDER = props.order ?? ['tl', 'tr', 'bl', 'br']
+const clk = (k: string) => (props.reveal ? ORDER.indexOf(k) + 1 : false)
 // axis labels split on '·' → each part on its own line (e.g. "code · objective" → code / objective)
 const parts = (s?: string) => (s ?? '').split('·').map(x => x.trim()).filter(Boolean)
 const QUADS = (['tl', 'tr', 'bl', 'br'] as const).map(k => ({ k, q: props[k], pos: POS[k] }))

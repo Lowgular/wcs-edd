@@ -778,6 +778,7 @@ Tonight is doing RED first: define the bar, then make the system clear it. Strai
 
 <Quadrants
   top="ground truth" bottom="no ground truth" left="code · objective" right="LLM-as-judge · subjective"
+  reveal :order="['br', 'tr', 'tl', 'bl']"
   :tl="{ tag: 'Exact', tone: 'emerald', items: ['retriever analysis'] }"
   :tr="{ tag: 'Semantic', tone: 'orange', items: ['text analysis'] }"
   :bl="{ tag: 'Structural', tone: 'yellow', items: ['code analysis'] }"
@@ -847,20 +848,6 @@ We deliberately choose bottom-left: objective code checks. Same task, better qua
     { q: 'preference', text: 'looks good?' } ] },
 ]" />
 
-</div>
-
-<div v-click="3" class="mx-auto max-w-3xl mt-4 rounded-lg border border-amber-400/30 bg-amber-400/5 px-5 py-3 text-sm">
-  <div class="text-amber-200 font-semibold mb-1.5">Treat it as a task resolver — not a benchmark:</div>
-  <div class="flex flex-col gap-1">
-    <div>
-      <span class="inline-block w-2 h-2 rounded-full align-middle mr-1" style="background:#22c55e"></span><span class="inline-block w-2 h-2 rounded-full align-middle mr-2" style="background:#eab308"></span>
-      <b>objective ~80%</b> <span class="opacity-70">— automate it with structured, eval-driven engineering</span>
-    </div>
-    <div>
-      <span class="inline-block w-2 h-2 rounded-full align-middle mr-1" style="background:#f97316"></span><span class="inline-block w-2 h-2 rounded-full align-middle mr-2" style="background:#f43f5e"></span>
-      <b>subjective ~20%</b> <span class="opacity-70">— don't LLM-judge it; <b class="opacity-100">you</b> judge it, feed it back as specs each loop</span>
-    </div>
-  </div>
 </div>
 
 <!--
@@ -1040,7 +1027,7 @@ layout: center
 clicks: 3
 ---
 
-# Andrew wants the grey zones
+# Andrew wants more
 
 <div class="flex items-center justify-center gap-12 mt-6">
 
@@ -1194,7 +1181,7 @@ just in time, instead of stuffing every rule and example into one prompt. Run: .
 #### <span class="text-amber-300">✗ Limits</span>
 
 - **Context bloat** — every rule rides every task
-- **Cost** — input tokens scale with the prompt
+- **Does not generalize** — tuned for one task, not the next
 - **Static** — the same prompt for every task
 
 </div>
@@ -1269,32 +1256,32 @@ layout: section
 
 <div class="grid grid-cols-3 gap-4 max-w-5xl mx-auto text-left text-sm">
 
-<div class="rounded-xl border border-white/20 border-l-4 border-l-indigo-400/70 bg-white/5 p-4">
+<div v-click class="rounded-xl border border-white/20 border-l-4 border-l-indigo-400/70 bg-white/5 p-4">
   <div class="font-extrabold mb-1 text-indigo-300">🧭 Instructions</div>
   <div class="opacity-80">The agent's core role, goals, and operational boundaries.</div>
 </div>
 
-<div class="rounded-xl border border-white/20 border-l-4 border-l-sky-400/70 bg-white/5 p-4">
+<div v-click class="rounded-xl border border-white/20 border-l-4 border-l-sky-400/70 bg-white/5 p-4">
   <div class="font-extrabold mb-1 text-sky-300">📚 Knowledge</div>
   <div class="opacity-80">Retrieved documents, architectural diagrams, and domain-specific data.</div>
 </div>
 
-<div class="rounded-xl border border-white/20 border-l-4 border-l-violet-400/70 bg-white/5 p-4">
+<div v-click class="rounded-xl border border-white/20 border-l-4 border-l-violet-400/70 bg-white/5 p-4">
   <div class="font-extrabold mb-1 text-violet-300">🧠 Memory</div>
   <div class="opacity-80">Short-term session logs (what just happened) and long-term persistent state (what the project is).</div>
 </div>
 
-<div class="rounded-xl border border-white/20 border-l-4 border-l-emerald-400/70 bg-white/5 p-4">
+<div v-click class="rounded-xl border border-white/20 border-l-4 border-l-emerald-400/70 bg-white/5 p-4">
   <div class="font-extrabold mb-1 text-emerald-300">🧩 Examples</div>
   <div class="opacity-80">Few-shot behavioral demonstrations and codebase reference patterns.</div>
 </div>
 
-<div class="rounded-xl border border-white/20 border-l-4 border-l-cyan-400/70 bg-white/5 p-4">
+<div v-click class="rounded-xl border border-white/20 border-l-4 border-l-cyan-400/70 bg-white/5 p-4">
   <div class="font-extrabold mb-1 text-cyan-300">🔌 Tools</div>
   <div class="opacity-80">The precise definitions of the APIs, scripts, and external services the agent can invoke.</div>
 </div>
 
-<div class="rounded-xl border border-white/20 border-l-4 border-l-rose-400/70 bg-white/5 p-4">
+<div v-click class="rounded-xl border border-white/20 border-l-4 border-l-rose-400/70 bg-white/5 p-4">
   <div class="font-extrabold mb-1 text-rose-300">🛡️ Guardrails</div>
   <div class="opacity-80">Hard constraints, formatting rules, and safety validations.</div>
 </div>
@@ -1316,7 +1303,7 @@ actual source definition.
 
 <div class="grid grid-cols-2 gap-6 max-w-4xl mx-auto text-left text-sm">
 
-<div class="rounded-xl border border-white/30 bg-white/8 p-5">
+<div v-click="1" class="rounded-xl border border-white/30 bg-white/8 p-5">
   <div class="flex items-baseline gap-2 mb-3">
     <span class="text-lg font-extrabold">📌 Static context</span>
     <span class="text-xs uppercase tracking-wider opacity-55">always loaded</span>
@@ -1330,7 +1317,7 @@ actual source definition.
   <div class="mt-3 text-xs opacity-60">Expensive — every token rides every call, whether relevant or not.</div>
 </div>
 
-<div class="rounded-xl border border-dashed border-amber-300/40 bg-amber-400/5 p-5">
+<div v-click="2" class="rounded-xl border border-dashed border-amber-300/40 bg-amber-400/5 p-5">
   <div class="flex items-baseline gap-2 mb-3">
     <span class="text-lg font-extrabold">⚡ Dynamic context</span>
     <span class="text-xs uppercase tracking-wider opacity-55">loaded on demand</span>
@@ -1346,7 +1333,7 @@ actual source definition.
 
 </div>
 
-<div v-click class="max-w-3xl mx-auto mt-6 text-sm text-center opacity-80">Where the boundary sits is a genuine engineering trade-off — too much static wastes tokens, too little and the agent forgets. The best systems treat it as a first-class, versioned decision.</div>
+<div v-click="3" class="max-w-3xl mx-auto mt-6 text-sm text-center opacity-80">Where the boundary sits is a genuine engineering trade-off — too much static wastes tokens, too little and the agent forgets. The best systems treat it as a first-class, versioned decision.</div>
 
 <!--
 The static/dynamic split, distilled from the source article into bullets — implementation nouns (AGENTS.md /
@@ -1400,7 +1387,7 @@ one simple move. Next we lay out the retrieval landscape, then make it concrete 
 <div class="grid grid-cols-2 gap-6 max-w-4xl mx-auto text-left text-sm">
 
 <!-- Classical / vector RAG -->
-<div class="rounded-xl border border-white/25 bg-white/5 p-5">
+<div v-click="1" class="rounded-xl border border-white/25 bg-white/5 p-5">
   <div class="flex items-baseline gap-2 mb-3">
     <span class="text-lg font-extrabold">📦 Classical RAG</span>
     <span class="text-xs uppercase tracking-wider opacity-55">vector</span>
@@ -1413,7 +1400,7 @@ one simple move. Next we lay out the retrieval landscape, then make it concrete 
 </div>
 
 <!-- GraphRAG -->
-<div class="rounded-xl border border-dashed border-amber-300/40 bg-amber-400/5 p-5">
+<div v-click="2" class="rounded-xl border border-dashed border-amber-300/40 bg-amber-400/5 p-5">
   <div class="flex items-baseline gap-2 mb-3">
     <span class="text-lg font-extrabold">🕸 GraphRAG</span>
     <span class="text-xs uppercase tracking-wider opacity-55">Neo4j</span>
@@ -1427,7 +1414,7 @@ one simple move. Next we lay out the retrieval landscape, then make it concrete 
 
 </div>
 
-<div class="mt-6 text-center text-xs opacity-55">the graph that <i>does</i> pay off for code isn't over docs — it's over the <b>code</b> (AST → graph → cypher) → code-graph</div>
+<div v-click="3" class="mt-6 text-center text-xs opacity-55">the graph that <i>does</i> pay off for code isn't over docs — it's over the <b>code</b> (AST → graph → cypher) → code-graph</div>
 
 <!--
 THE LANDSCAPE, PART 1 — the two conventional retrieval techniques, honestly. CLASSICAL (vector) RAG is the
@@ -1569,7 +1556,7 @@ Angular MCP, or the QMD wiki). That "it has to call out" is exactly the seam int
 
 - **Can miss** — the retriever may skip the doc the task needed
 - **Tuning is real** — big docs bloat, small docs miss
-- **Pays off at scale** — a small wiki is better off pinned in the prompt; retrieval earns its keep as the corpus grows
+- **Observability** — can go off the rails
 
 </div>
 
@@ -2074,14 +2061,6 @@ self-verify loop climbs it back. Black-box checks need the app to build + serve,
 
 </div>
 
-<div v-click class="text-center mt-7 text-sm">
-  <span class="px-4 py-2 rounded-full border border-white/15 opacity-80">new checks surface real gaps — score dips to <b>78</b>…</span>
-</div>
-
-<div v-click class="text-center mt-3 text-sm">
-  <span class="px-4 py-2 rounded-full border border-emerald-400/50 text-emerald-200">…then the agent fixes the build &amp; a11y failures → back to <b>100</b>, on a wider bar</span>
-</div>
-
 <div class="mt-7 text-center text-xs opacity-55">this is the white-box → black-box move: it doesn't just <i>read</i> like good code, it <i>builds</i> and it's <i>accessible</i></div>
 
 <!--
@@ -2426,11 +2405,7 @@ go next / real codebase). Let it breathe before the closer.
 
 </div>
 
-<div v-click class="text-center mt-8 text-sm">
-  <span class="px-4 py-2 rounded-full border border-amber-400/40 text-amber-200">Frontier model where it <i>thinks</i> · free local model where it <i>grinds</i> · the checks aren't even models</span>
-</div>
-
-<div v-click class="text-center mt-3 text-xs opacity-60">this run's bill: planner + implementer billed · verifier, validator &amp; fixer <span class="text-emerald-300">$0</span> — <code>WorkflowOptimisedAgentRunner</code></div>
+<div class="text-center mt-8 text-xs opacity-60">this run's bill: planner + implementer billed · verifier, validator &amp; fixer <span class="text-emerald-300">$0</span> — <code>WorkflowOptimisedAgentRunner</code></div>
 
 <!--
 BONUS — PER-AGENT MODEL ROUTING. Same pipeline as the last slide (planner → implementer → verifier → validator,
@@ -2548,7 +2523,7 @@ like in a real codebase, and the one concrete first step home. Keep it brief —
 <div class="grid grid-cols-2 gap-6 max-w-4xl mx-auto text-left text-sm">
 
 <!-- The 90% -->
-<div class="rounded-xl border border-white/25 bg-white/5 p-5">
+<div v-click class="rounded-xl border border-white/25 bg-white/5 p-5">
   <div class="flex items-baseline gap-2 mb-3">
     <span class="text-lg font-extrabold">🧠 In-context</span>
     <span class="text-xs uppercase tracking-wider opacity-55">tonight · ~90%</span>
@@ -2561,7 +2536,7 @@ like in a real codebase, and the one concrete first step home. Keep it brief —
 </div>
 
 <!-- The last 10% -->
-<div class="rounded-xl border border-dashed border-amber-300/40 bg-amber-400/5 p-5">
+<div v-click class="rounded-xl border border-dashed border-amber-300/40 bg-amber-400/5 p-5">
   <div class="flex items-baseline gap-2 mb-3">
     <span class="text-lg font-extrabold">🔩 Own the model</span>
     <span class="text-xs uppercase tracking-wider opacity-55">the last 10%</span>
@@ -2598,14 +2573,14 @@ DELIVERY: don't teach this — name it so the senior crowd knows you know the ce
 
 <div class="grid grid-cols-3 gap-4 max-w-5xl mx-auto text-left text-sm">
 
-<div class="rounded-xl border border-white/15 p-4">
+<div v-click class="rounded-xl border border-white/15 p-4">
   <div class="text-xs uppercase tracking-wider opacity-55 mb-2">Agents</div>
   <ul class="flex flex-col gap-1.5">
     <li><b>LangChain DeepAgents</b> — long-horizon orchestration</li>
   </ul>
 </div>
 
-<div class="rounded-xl border border-white/15 p-4">
+<div v-click class="rounded-xl border border-white/15 p-4">
   <div class="text-xs uppercase tracking-wider opacity-55 mb-2">Evals & grading</div>
   <ul class="flex flex-col gap-1.5">
     <li><b>DeepEval</b> — pytest-style LLM evals</li>
@@ -2613,7 +2588,7 @@ DELIVERY: don't teach this — name it so the senior crowd knows you know the ce
   </ul>
 </div>
 
-<div class="rounded-xl border border-white/15 p-4">
+<div v-click class="rounded-xl border border-white/15 p-4">
   <div class="text-xs uppercase tracking-wider opacity-55 mb-2">Harness & benchmarks</div>
   <ul class="flex flex-col gap-1.5">
     <li><b>Harbor</b> · <b>Terminal-Bench</b></li>
@@ -2641,46 +2616,6 @@ Bench are reference points; benchmark-runner is my worked example). Punchline: t
 the tool — take the harness to your own repo.
 NOTE TO SELF: verify the one-line descriptors for SkillGrade / Harbor before presenting — these are my references,
 swap in the exact framing I want. DeepAgents = LangChain; DeepEval = confident-ai; Terminal-Bench = terminal agents.
--->
-
----
-layout: center
-clicks: 3
----
-
-<!-- PARKED (moved out of the harness arc on 2026-07-02): the original "Andrew is amazed" beat. Kept here so
-     it isn't lost — the live arc now ends on "Andrew is skeptical" after agentic RAG. Re-home or delete later. -->
-
-# Andrew is amazed <span class="text-sm opacity-40">(parked)</span>
-
-<div class="flex items-center justify-center gap-12 mt-6">
-
-<Andrew emotion="amazed" />
-
-<div class="text-left flex flex-col gap-4 items-start">
-
-<div v-click="1">
-<span class="px-3 py-1 rounded-full border border-white/15 text-sm">"fewer tokens <i>and</i> a higher score?"</span>
-</div>
-
-<div v-click="2">
-<span class="px-3 py-1 rounded-full border border-white/15 text-sm">"ok — this is pretty good"</span>
-</div>
-
-<div v-click="3">
-<span class="px-3 py-1 rounded-full border border-amber-400/40 text-amber-200 text-sm">"what can go wrong… and what else can it do for me?"</span>
-</div>
-
-</div>
-
-</div>
-
-<!--
-ANDREW IS AMAZED (PARKED) — the agentic run paid off on BOTH axes at once: cheaper (the prompt is slim, it fetches
-only what each task needs) AND higher-scoring (a missed fetch is now recovered inside the loop). The trade-off he
-feared just… disappears — both at once. Then the two honest next questions: "what can go wrong?" and "what else can
-it do for me?". NOTE: superseded in the live arc by "Andrew is skeptical" (burns more tokens, no reliable accuracy
-win). Kept here as an alternative ending — decide whether the story lands amazed or skeptical.
 -->
 
 ---
