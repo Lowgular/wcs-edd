@@ -23,7 +23,7 @@ import { modelPurityRating } from "./ratings/model-purity.rating.mjs";
 export default {
   ...base,
   displayName: "Stage 3",
-  generationSystemPrompt: "./system-instructions.s3.md",
+  generationSystemPrompt: "./system-instructions.s2.md",
   ratings: [
     // ── same as s2 (curated eslint baseline + custom binary rules; NO privacy) ──
     angularEslintRating,

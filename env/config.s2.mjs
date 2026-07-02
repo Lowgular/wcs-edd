@@ -12,7 +12,7 @@ import { formattingRating } from "./ratings/formatting.rating.mjs";
 export default {
   ...base,
   displayName: "Stage 2",
-  generationSystemPrompt: "./system-instructions.s2.md",
+  generationSystemPrompt: "./system-instructions.s1.md",
   ratings: [
     angularEslintFullRating, // stage 1 (full standard: + standalone + change-detection)
     inputOutputRating, // input()/output() over @Input()/@Output()

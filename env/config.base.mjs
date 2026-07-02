@@ -4,8 +4,8 @@
 // the same directory every config lives in — so spreading the strings keeps them valid.
 /** @type {Partial<import("web-codegen-scorer").EnvironmentConfig>} */
 export default {
-  clientSideFramework: 'angular',
-  sourceDirectory: './project',
-  packageManager: 'npm',
-  executablePrompts: ['../tasks/*.md'],
+  clientSideFramework: "angular",
+  sourceDirectory: "./project",
+  packageManager: "npm",
+  executablePrompts: ["../tasks/*.md"],
 };

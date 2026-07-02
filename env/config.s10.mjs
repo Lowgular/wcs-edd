@@ -6,13 +6,12 @@
 //
 // Needs `ollama` running with the fixer model pulled (see agents/models.mjs — gemma4:26b by default,
 // override with FIXER_MODEL).
-import { axeRating, successfulBuildRating } from "web-codegen-scorer";
 import { agenticConfig } from "./config.agentic-base.mjs";
 import { WorkflowGatedAgentRunner } from "../agents/workflow-gated-agent.runner.mjs";
-import { stage7Ratings } from "./config.s7.mjs";
+import { fullRatings } from "./ratings/index.mjs";
 
 export default agenticConfig({
   displayName: "Stage 10",
   runner: new WorkflowGatedAgentRunner({ fixer: "ollama" }), // ← the ONLY difference from stage 9
-  ratings: [...stage7Ratings, successfulBuildRating, axeRating], // same bar as stage 9
+  ratings: [...fullRatings], // same bar as stage 9
 });

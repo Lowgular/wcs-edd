@@ -9,10 +9,10 @@
 import { axeRating, successfulBuildRating } from "web-codegen-scorer";
 import { agenticConfig } from "./config.agentic-base.mjs";
 import { AgentVerifyAndValidateRunner } from "../agents/agent-verifyvalidate.runner.mjs";
-import { stage7Ratings } from "./config.s7.mjs";
+import { customRatings } from "./ratings/index.mjs";
 
 export default agenticConfig({
   displayName: "Stage 8",
   runner: new AgentVerifyAndValidateRunner(),
-  ratings: [...stage7Ratings, axeRating, successfulBuildRating],
+  ratings: [...customRatings, axeRating, successfulBuildRating],
 });

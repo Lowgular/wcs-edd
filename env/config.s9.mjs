@@ -8,14 +8,13 @@
 // Scored on the SAME bar as Stage 8 (stage 7's rules + build + axe) so the two stay directly
 // comparable — the axe number now shows the honest a11y cost of not fixing it, isolated from the
 // build/convention score.
-import { axeRating, successfulBuildRating } from "web-codegen-scorer";
 import { agenticConfig } from "./config.agentic-base.mjs";
 import { WorkflowGatedAgentRunner } from "../agents/workflow-gated-agent.runner.mjs";
-import { stage7Ratings } from "./config.s7.mjs";
+import { fullRatings } from "./ratings/index.mjs";
 
 export default agenticConfig({
   displayName: "Stage 9",
   runner: new WorkflowGatedAgentRunner(),
   // All three gates the harness now drives fix-until-green: verify (lint) + build + axe (a11y).
-  ratings: [...stage7Ratings, successfulBuildRating, axeRating],
+  ratings: [...fullRatings],
 });

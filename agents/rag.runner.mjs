@@ -62,7 +62,7 @@ export class RagRunner extends AiSdkRunner {
     // Uses DEFAULT_STRATEGY (keyword-delta): inject only the task-specific docs the slim core doesn't
     // already cover, so RAG adds depth instead of re-pasting the baseline. Change the strategy in
     // wiki.tools.mjs (DEFAULT_STRATEGY), not here.
-    const { block } = retrieveGuidance(request.prompt);
+    const { block } = retrieveGuidance(request.prompt, "tech-req+threshold");
     if (!block) return messages;
     let injected = false;
     const next = messages.map((m) => {

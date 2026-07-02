@@ -13,6 +13,6 @@ import { angularEslintFullRating } from "./ratings/angular-eslint-full.rating.mj
 export default {
   ...base,
   displayName: "Stage 1",
-  generationSystemPrompt: "./system-instructions.s1.md",
+  generationSystemPrompt: "./system-instructions.s0.md",
   ratings: [angularEslintFullRating],
 };
