@@ -27,4 +27,15 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/runs/
+# web-codegen-scorer writes these into the working directory (the repo root)
+.web-codegen-scorer/
+safety-web.log
+*.log
+# qmd local index (regenerable: qmd init && qmd collection add ./wiki --name wiki && qmd embed)
+.qmd/
+
+# qmd-assembled prompts (regenerate: node scripts/qmd-context.mjs)
+tasks/generated/
+
+# per-runner diagnostic dumps (agents/*.runner.mjs each overwrite a snapshot of their last run)
+.run-debug/

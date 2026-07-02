@@ -1,0 +1,71 @@
+/* ──────────────────────────────────────────────────────────────
+   Lowgular brand layer — thin overrides on Slidev's default layouts.
+   Palette + fonts sourced from lowgular.io.
+   ────────────────────────────────────────────────────────────── */
+:root {
+  --lowg-blue: #3d9ad9;
+  --lowg-blue-dim: rgba(61, 154, 217, 0.14);
+  --lowg-dark: #0a0e13;
+  --lowg-dark2: #111720;
+  --lowg-dark3: #1a2130;
+  --lowg-text: #e8edf2;
+  --lowg-muted: rgba(232, 237, 242, 0.45);
+
+  /* drive Slidev's accent off the brand blue */
+  --slidev-theme-primary: #3d9ad9;
+}
+
+/* base canvas */
+.slidev-layout {
+  background-color: var(--lowg-dark);
+  color: var(--lowg-text);
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+
+/* serif display for headings, like the site */
+.slidev-layout h1,
+.slidev-layout h2 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  color: #f4f8fb;
+}
+
+/* mono for inline code + code blocks + the // labels */
+.slidev-layout code,
+.slidev-layout kbd,
+.slidev-layout .slidev-code {
+  font-family: 'DM Mono', ui-monospace, monospace;
+}
+
+/* links + inline code tint */
+.slidev-layout a { color: var(--lowg-blue); }
+.slidev-layout :not(pre) > code {
+  color: var(--lowg-blue);
+  background: var(--lowg-blue-dim);
+  padding: 0.05em 0.35em;
+  border-radius: 5px;
+}
+
+/* cover + section dividers get a subtle brand glow */
+.slidev-layout.cover,
+.slidev-layout.section {
+  background: radial-gradient(120% 130% at 82% -15%, #14293a 0%, var(--lowg-dark) 55%);
+}
+
+/* an accent rule under section-divider titles */
+.slidev-layout.section h1 {
+  border-bottom: 3px solid var(--lowg-blue);
+  padding-bottom: 0.3rem;
+  display: inline-block;
+}
+
+/* tighten default bullet rhythm a touch for dense content slides */
+.slidev-layout ul { line-height: 1.5; }
+
+/* code block chrome on brand-dark */
+.slidev-layout .slidev-code-wrapper pre,
+.slidev-layout pre.shiki {
+  border: 1px solid var(--lowg-dark3);
+  border-radius: 10px;
+}
