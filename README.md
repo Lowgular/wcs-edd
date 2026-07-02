@@ -18,11 +18,35 @@ npm install
 **2 · Get a Gemini API key**
 
 Open **[aistudio.google.com/apikey](https://aistudio.google.com/apikey)** → create a key → export it.
-The built-in `ai-sdk` runner reads this variable:
+The built-in `ai-sdk` runner reads the `GOOGLE_GENERATIVE_AI_API_KEY` variable.
+
+**macOS / Linux** (bash/zsh):
 
 ```bash
 export GOOGLE_GENERATIVE_AI_API_KEY=your_key_here
 ```
+
+**Windows — PowerShell** (set it for the current session):
+
+```powershell
+$env:GOOGLE_GENERATIVE_AI_API_KEY = "your_key_here"
+```
+
+To persist it across sessions, set it once at the user level (reopen the terminal afterwards):
+
+```powershell
+setx GOOGLE_GENERATIVE_AI_API_KEY "your_key_here"
+```
+
+**Windows — Command Prompt (cmd):**
+
+```cmd
+set GOOGLE_GENERATIVE_AI_API_KEY=your_key_here
+```
+
+> On Windows, run the `npm`/`npx` commands from the **same terminal window** where you set the key.
+> With `$env:`/`set` the value lasts only for that window; `setx` persists it but only takes effect in
+> terminals opened *after* you run it.
 
 **3 · Run one baseline eval** — one command from the repo root:
 
