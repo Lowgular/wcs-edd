@@ -54,6 +54,10 @@ set GOOGLE_GENERATIVE_AI_API_KEY=your_key_here
 ./run-task.sh 0
 ```
 
+> **On Windows?** `.sh` is a bash script — run it in **Git Bash** (ships with Git for Windows) or WSL
+> exactly as above. In native **PowerShell**, use the twin script instead: `.\run-task.ps1 0`
+> (first time only, if scripts are blocked: `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`).
+
 That's the whole demo. `run-task.sh <stage>` hides the boilerplate — it fixes the runner (`ai-sdk`),
 the model (`gemini-2.5-flash`), and the `--skip-*` flags, and the only knob you ever pick is the
 **stage number** (`0` is the basic baseline prompt). Stages `1`–`4` come later in the workshop.
