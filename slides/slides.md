@@ -82,9 +82,13 @@ layout: center
 
 <div class="text-left max-w-md">
 
+<div v-click="1">
+
 ### Senior Angular dev · the team's unofficial tech lead
 
-<div class="flex flex-wrap gap-2 mt-4 text-sm">
+</div>
+
+<div v-click="2" class="flex flex-wrap gap-2 mt-4 text-sm">
 <span class="px-3 py-1 rounded-full border border-white/15">the reliable one</span>
 <span class="px-3 py-1 rounded-full border border-white/15">plans work · defines tasks</span>
 <span class="px-3 py-1 rounded-full border border-white/15">answers everyone's questions</span>
@@ -450,6 +454,7 @@ clicks: 1
 </div>
 
 <span class="opacity-20 text-xl">→</span>
+
 <div class="opacity-30"><Box tone="sky" icon="🔌" title="API" sub="endpoints" /></div>
 <span class="opacity-20 text-xl">→</span>
 <div class="opacity-30"><Box tone="sky" icon="🗄️" title="DB schema" sub="data model" /></div>
@@ -516,7 +521,7 @@ layout: center
 clicks: 3
 ---
 
-# Andrew gets the idea
+# Andrew is unimpressed
 
 <div class="flex items-center justify-center gap-12 mt-6">
 
@@ -525,15 +530,15 @@ clicks: 3
 <div class="text-left flex flex-col gap-4 items-start">
 
 <div v-click="1">
-<span class="px-3 py-1 rounded-full border border-emerald-400/40 text-emerald-200 text-sm">love it</span>
+<span class="px-3 py-1 rounded-full border border-white/15 text-sm">heard that before</span>
 </div>
 
 <div v-click="2">
-<span class="px-3 py-1 rounded-full border border-white/15 text-sm">I get the idea</span>
+<span class="px-3 py-1 rounded-full border border-white/15 text-sm">tried it, didn't work</span>
 </div>
 
 <div v-click="3">
-<span class="px-3 py-1 rounded-full border border-amber-400/40 text-amber-200 text-sm">but how do I actually do it?</span>
+<span class="px-3 py-1 rounded-full border border-amber-400/40 text-amber-200 text-sm">how do I code it?</span>
 </div>
 
 </div>
@@ -607,15 +612,13 @@ layout: center
 clicks: 1
 ---
 
-# Questions?
+# Andrew has questions
 
 <div class="flex items-center justify-center gap-12 mt-6">
 
 <Andrew emotion="curious" />
 
 <div class="text-left max-w-md">
-
-Andrew's not the only one wondering.
 
 <div v-click="1" class="flex flex-wrap gap-2 mt-4 text-sm">
 <span class="px-3 py-1 rounded-full border border-white/15">are we grading the model?</span>
@@ -922,6 +925,7 @@ layout: section
 ---
 
 # Prompt Engineering
+
 ### Teaching the model the house rules
 
 ---
@@ -961,7 +965,7 @@ layout: center
 clicks: 3
 ---
 
-# Andrew wants more
+# Andrew is interested
 
 <div class="flex items-center justify-center gap-12 mt-6">
 
@@ -1246,6 +1250,7 @@ layout: section
 ---
 
 # Context Engineering
+
 ### Stop shipping the whole manual
 
 ---
@@ -1622,6 +1627,7 @@ layout: section
 ---
 
 # Harness Engineering
+
 ### One shot is the wall — give the model a loop
 
 <!--
@@ -2161,6 +2167,7 @@ layout: section
 ---
 
 # Advanced Harness Engineering
+
 ### Stop trusting the agent to run the show — write the loop yourself
 
 <!--
@@ -2432,7 +2439,7 @@ Gemma needs `ollama` running.)
 
 #### <span class="text-emerald-300">✓ Wins</span>
 
-- **Deterministic control** — verifier always runs, *you* own the stop condition
+- **Deterministic control** — verifier always runs, _you_ own the stop condition
 - **Scales** — focused agents, bigger tasks, no choking
 - **Cost is a knob** — route per role: frontier · free local · plain code
 
@@ -2444,7 +2451,7 @@ Gemma needs `ollama` running.)
 
 - **You own the loop** — orchestration code to build, debug & maintain
 - **More moving parts** — agents, roles, infra (local models, MCP)
-- **Still probabilistic inside** — it *gates* bad output, doesn't prevent it
+- **Still probabilistic inside** — it _gates_ bad output, doesn't prevent it
 
 </div>
 
@@ -2505,6 +2512,7 @@ layout: section
 ---
 
 # What's next
+
 ### Beyond the workshop — the frontier, the tooling, your repo
 
 <!--
