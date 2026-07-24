@@ -23,6 +23,7 @@
   "homepage": "https://github.com/Lowgular/wcs-edd#readme",
   "dependencies": {
     "angular-eslint": "^22.0.0",
+    "dotenv": "^17.4.2",
     "eslint": "^10.5.0",
     "typescript-eslint": "^8.61.0",
     "web-codegen-scorer": "^0.0.70"
